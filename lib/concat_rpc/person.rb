@@ -5,21 +5,21 @@ module ConcatRPC
     self.defaults = {'gender'=>0,'lname'=>'UNKNOWN'}
 
     def self.find(id)
-      new(ConcatRPC.call('show_person',id))
+      new(ConcatRPC.show_person(id))
     end
 
     def self.find_by_text(text)
-      person = ConcatRPC.call('find_person',text).first
+      person = ConcatRPC.find_person(text).first
       return unless person
       find(person['id'])
     end
 
     def self.tag(id,tag)
-      ConcatRPC.call('set_tag',id,tag)
+      ConcatRPC.set_tag(id,tag)
     end
 
     def self.untag(id,tag)
-      ConcatRPC.call('unset_tag',id,tag)
+      ConcatRPC.unset_tag(id,tag)
     end
 
     def initialize(data={})
@@ -27,7 +27,7 @@ module ConcatRPC
     end
 
     def save!
-      self.id = ConcatRPC.call('create_person',self.class.defaults.merge(@data))
+      self.id = ConcatRPC.create_person(self.class.defaults.merge(@data))
       self
     end
 

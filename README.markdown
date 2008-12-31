@@ -23,6 +23,6 @@ USAGE
 
 AUTHOR
 ======
-Michael Grosser
-grosser.michael@gmail.com
-Hereby placed under public domain, do what you want, just do not hold me accountable...
+Michael Grosser  
+grosser.michael@gmail.com  
+Hereby placed under public domain, do what you want, just do not hold me accountable...  

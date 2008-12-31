@@ -4,11 +4,10 @@ module ConcatRPC
 
   def url=(url)
     require 'xmlrpc/client'
-    @client = XMLRPC::Client.new2(url)
-    #TODO use proxy http://redhanded.hobix.com/inspect/theBestOfMethod_missing.html
+    @client = XMLRPC::Client.new2(url).proxy('')
   end
-
-  def call(*args)
-    @client.call('.'+args[0],*args[1..-1])
+  
+  def method_missing(name,*args)
+    @client.send(name,*args)
   end
 end

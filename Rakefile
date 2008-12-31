@@ -15,7 +15,7 @@ require 'rubygems'
 require 'rake'
 require 'echoe'
 
-Echoe.new('concat_rpc', '0.1.0') do |p|
+Echoe.new('concat_rpc', '0.1.1') do |p|
   p.description    = "Api for 20Sec Concat - Contact managing"
   p.url            = "http://github.com/grosser/concat_rpc"
   p.author         = "Michael Grosser"
@@ -27,7 +27,7 @@ end
 
 Dir["#{File.dirname(__FILE__)}/tasks/*.rake"].sort.each { |ext| load ext }
 
-task :refresh_gemspec do
+task :update_gemspec do
   puts "updating..."
   `rake manifest`
   `rake build_gemspec`

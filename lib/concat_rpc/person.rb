@@ -10,7 +10,7 @@ module ConcatRPC
 
     def self.find_by_text(text)
       person = ConcatRPC.find_person(text).first
-      return unless person
+      return nil if person.blank?
       find(person['id'])
     end
 

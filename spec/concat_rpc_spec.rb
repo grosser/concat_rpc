@@ -20,6 +20,9 @@ describe ConcatRPC do
     it "finds a person by email" do
       Person.find_by_text(PERSON_EMAIL).id.should == PERSON_ID
     end
+    it "returns nil for unfound persons" do
+      Person.find_by_text('adsaadsadsaswwwddssdsdsdadadsdas').should == nil
+    end
   end
   describe 'tagging' do
     before do
